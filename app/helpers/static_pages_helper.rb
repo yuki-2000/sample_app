@@ -26,4 +26,15 @@ module StaticPagesHelper
         JSON.parse(response.body)
       end
 
+      def index4()
+        url = "https://api.syosetu.com/rank/rankget"
+        day5 = Time.now.prev_year(5).strftime(format= '%Y%m%d')
+        query = { out: "json", rtype: day5 + "-d" , lim: 20 }          # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        client = HTTPClient.new
+        response = client.get(url, query)
+        JSON.parse(response.body)
+      end
+
+
+
 end
