@@ -29,12 +29,38 @@ module StaticPagesHelper
       def index4()
         url = "https://api.syosetu.com/rank/rankget"
         day5 = Time.now.prev_year(5).strftime(format= '%Y%m%d')
-        query = { out: "json", rtype: day5 + "-d" , lim: 20 }          # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        query = { out: "json", rtype: day5 + "-d" ,gzip: 0 } # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
         client = HTTPClient.new
         response = client.get(url, query)
         JSON.parse(response.body)
       end
+      
+      def make_ranking(data)
+        data[0..5].each do |novel|
+          ncode = novel["ncode"]          
+          pt = novel["pt"]
+          rank = novel["rank"]
 
+          url = "https://api.syosetu.com/novelapi/api/"
+          query = { out: "json", ncode: ncode ,gzip: 0, of: "t-w-s"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+          client = HTTPClient.new
+          response = client.get(url, query)
+          JSON.parse(response.body)
+        end
+      end
+
+
+      def get_novel_data(novel)
+        ncode = novel["ncode"]          
+        pt = novel["pt"]
+        rank = novel["rank"]
+
+        url = "https://api.syosetu.com/novelapi/api/"
+        query = { out: "json", ncode: ncode ,gzip: 0, of: "t-w-s"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        client = HTTPClient.new
+        response = client.get(url, query)
+        JSON.parse(response.body)
+      end 
 
 
 end

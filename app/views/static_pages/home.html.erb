@@ -13,6 +13,13 @@
 
 
   <h3><%= index4%></h3>
+  <h3><%= make_ranking(index4())%></h3>
+
+  <% index4()[0..5].each do |novel| %>
+    <%= get_novel_data(novel) %>
+  <% end %>
+
+
 
 
   
