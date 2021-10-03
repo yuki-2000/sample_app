@@ -18,7 +18,7 @@
 </div>
 
 <div class="ranking_inbox">
-  <% index4()[0..5].each do |novel| %>
+  <% index4()[0..9].each do |novel| %>
     <% novel_data = get_novel_data(novel) %>
     <div class="ranking_list">
       <span class="ranking_number"><%= novel["rank"] %>位</span>

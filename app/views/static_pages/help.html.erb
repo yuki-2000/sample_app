@@ -10,8 +10,12 @@
 
 
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<br>
 
-
-  <% index4()[1..1].each do |novel| %>
+  <% index4()[0..15].each do |novel| %>
+    <%= novel %>
     <%= get_novel_data(novel) %>
+    <br>
+    <br>
+    
   <% end %>
