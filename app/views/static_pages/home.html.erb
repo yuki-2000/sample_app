@@ -10,57 +10,56 @@
   <% index4()[1..1].each do |novel| %>
     <%= get_novel_data(novel) %>
   <% end %>
-  <div class="ranking_inbox">
-    <% index4()[0..5].each do |novel| %>
-      <% novel_data = get_novel_data(novel) %>
-      <div class="ranking_list">
-        <span class="ranking_number"><%= novel["rank"] %>位</span>
-        <a class="tl" id="best1" target="_blank" href=<%=make_novel_url(novel["ncode"])%>>
-          <%=novel_data[1]["title"]%></a>
-        <table class="table">
-          <tbody>
-            <tr>
-              <td class="h_info" colspan="2">
-                <a target="_blank" href=<%=make_novel_info(novel["ncode"])%>>小説情報</a>
-                ／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data[1]["writer"]%></a>
-              </td>
-            </tr>
-            <tr>
-              <td class="left" rowspan="4">
-                <span class="point"><span class="attention"><%= novel["pt"] %></span>pt</span><br>
-                <%= judge_sl(sl = novel_data[1]["noveltype"], e = novel_data[1]["end"]) %>
-                <%if novel_data[1]["noveltype"] = 1%>
-                  <br>
-                  (全<%=novel_data[1]["general_all_no"]%>部分)
-                <%end%>
-              </td>
-              <td class="ex">
-                <%=novel_data[1]["story"]%>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= judge_genre(novel_data[1]["genre"]) %>
-              </td>
-            </tr>
-            <tr>
-              <td class="keyword">
-                <%=novel_data[1]["keyword"]%>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                最終更新日：<%=novel_data[1]["general_lastup"]%>
-                <span class="marginleft"><%=novel_data[1]["length"]%>文字</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-        <br>
-      <% end %>
-    </div>
+</div>
+<div class="ranking_inbox">
+  <% index4()[0..5].each do |novel| %>
+    <% novel_data = get_novel_data(novel) %>
+    <div class="ranking_list">
+      <span class="ranking_number"><%= novel["rank"] %>位</span>
+      <a class="tl" id="best1" target="_blank" href=<%=make_novel_url(novel["ncode"])%>>
+        <%=novel_data[1]["title"]%></a>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="h_info" colspan="2">
+              <a target="_blank" href=<%=make_novel_info(novel["ncode"])%>>小説情報</a>
+              ／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data[1]["writer"]%></a>
+            </td>
+          </tr>
+          <tr>
+            <td class="left" rowspan="4" width=95px>
+              <span class="point"><span class="attention"><%= novel["pt"] %></span>pt</span><br>
+              <%= judge_sl(sl = novel_data[1]["noveltype"], e = novel_data[1]["end"]) %>
+              <%if novel_data[1]["noveltype"] = 1%>
+                <br>
+                (全<%=novel_data[1]["general_all_no"]%>部分)
+              <%end%>
+            </td>
+            <td class="ex">
+              <%=novel_data[1]["story"]%>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= judge_genre(novel_data[1]["genre"]) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="keyword">
+              <%=novel_data[1]["keyword"]%>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              最終更新日：<%=novel_data[1]["general_lastup"]%>
+              <span class="marginleft"><%=novel_data[1]["length"]%>文字</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+    <% end %>
   </div>
 </div>
 <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
-
