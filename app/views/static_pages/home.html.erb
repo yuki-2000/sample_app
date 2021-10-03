@@ -6,13 +6,12 @@
     のランキングを掲載するサイトです。
   </h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <h3><%= index4%></h3>
-  <h3><%= make_ranking(index4())%></h3>
-  <% index4()[0..5].each do |novel| %>
+
+  <% index4()[1..1].each do |novel| %>
     <%= get_novel_data(novel) %>
   <% end %>
 
-  
+
   <% index4()[0..5].each do |novel| %>
     <% novel_data = get_novel_data(novel) %>
     <span class="ranking_number"><%= novel["rank"] %>位</span>
@@ -22,13 +21,17 @@
       <tbody>
         <tr>
           <td class="h_info" colspan="2">
-            <a target="_blank" href=<%=make_novel_info(novel["ncode"])%>>小説情報</a>／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data[1]["writer"]%></a>
+            <a target="_blank" href=<%=make_novel_info(novel["ncode"])%>>小説情報</a>
+            ／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data[1]["writer"]%></a>
           </td>
         </tr>
         <tr>
           <td class="left" rowspan="4">
             <span class="point"><span class="attention"><%= novel["pt"] %></span>pt</span><br>
             <%= judge_sl(sl = novel_data[1]["noveltype"], e = novel_data[1]["end"]) %>
+            <%if novel_data[1]["noveltype"] = 1%>
+              <br>(全<%=novel_data[1]["general_all_no"]%>部分)
+            <%end%>
           </td>
           <td class="ex">
             <%=novel_data[1]["story"]%>
@@ -37,6 +40,7 @@
         <tr>
           <td>
             <%= judge_genre(novel_data[1]["genre"]) %>
+            <%=novel_data[1]["genre"]%>
           </td>
         </tr>
         <tr>

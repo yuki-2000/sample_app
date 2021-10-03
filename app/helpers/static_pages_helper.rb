@@ -73,12 +73,14 @@ module StaticPagesHelper
       end
 
       def judge_sl(sl,e)
-        if sl = 2
+        sl = sl.to_i
+        e = e.to_i
+        if sl == 2
           return "短編"
-        elsif sl = 1
-          if e = 0
+        elsif sl == 1
+          if e == 0
             return "完結済み"
-          elsif e = 1
+          elsif e == 1
             return "連載中" 
           end
         end
@@ -87,47 +89,48 @@ module StaticPagesHelper
 
 
       def judge_genre(int)
-        if int = 101
-          "異世界〔恋愛〕"
-        elsif int = 102
-          "現実世界〔恋愛〕"
-        elsif int = 201
-          "ハイファンタジー〔ファンタジー〕"
-        elsif int = 202
-          "ローファンタジー〔ファンタジー〕"
-        elsif int = 301
+        int = int.to_i
+        if int == 101
+          return "異世界〔恋愛〕"
+        elsif int == 102
+          return "現実世界〔恋愛〕"
+        elsif int == 201
+          return "ハイファンタジー〔ファンタジー〕"
+        elsif int == 202
+          return "ローファンタジー〔ファンタジー〕"
+        elsif int == 301
           "純文学〔文芸〕"
-        elsif int =           302
+        elsif int ==           302
           "ヒューマンドラマ〔文芸〕"
-        elsif int =           303
+        elsif int ==           303
           "歴史〔文芸〕"
-        elsif int =           304
+        elsif int ==           304
           "推理〔文芸〕"
-        elsif int =           305
+        elsif int ==           305
           "ホラー〔文芸〕"
-        elsif int =           306
+        elsif int ==           306
           "アクション〔文芸〕"
-        elsif int =           307
+        elsif int ==           307
           "コメディー〔文芸〕"
-        elsif int =           401
+        elsif int ==           401
           "VRゲーム〔SF〕"
-        elsif int =           402
+        elsif int ==           402
           "宇宙〔SF〕"
-        elsif int =           403
+        elsif int ==           403
           "空想科学〔SF〕"
-        elsif int =           404
+        elsif int ==           404
           "パニック〔SF〕"
-        elsif int =           9901
+        elsif int ==           9901
           "童話〔その他〕"
-        elsif int =           9902
+        elsif int ==           9902
           "詩〔その他〕"
-        elsif int =           9903
+        elsif int ==           9903
           "エッセイ〔その他〕"
-        elsif int =           9904
+        elsif int ==           9904
           "リプレイ〔その他〕"
-        elsif int = 9999
+        elsif int == 9999
           "その他〔その他〕"
-        elsif int = 9801
+        elsif int == 9801
           "ノンジャンル〔ノンジャンル〕"
         end
       end
