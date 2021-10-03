@@ -1,16 +1,22 @@
 <div class="center jumbotron">
-  <h1>5年前のなろう日間ランキング</h1>
+  <h1>5年前の日間総合ランキング</h1>
   <h2>
     このサイトは5年前の
     <a href="https://syosetu.com/">小説家になろう</a>
-    のランキングを掲載するサイトです。
-    過去のランキングを見たい時に使ってください。
+    の日間総合ランキングを掲載するサイトです。<br>
+    過去のランキングを見たい時に使ってください。<br>
+    なお、    本サービスは<a href="https://hinaproject.co.jp/hina_guideline.html">株式会社ヒナプロジェクト</a>
+    が提供するものではありません<br>
+    また、「小説家になろう」は株式会社ヒナプロジェクトの登録商標です。
   </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <% index4()[1..1].each do |novel| %>
-    <%= get_novel_data(novel) %>
-  <% end %>
+
+
 </div>
+
+<div class="title_h2">
+  <div class="h2_rank">日間ランキングBEST300</div>
+</div>
+
 <div class="ranking_inbox">
   <% index4()[0..5].each do |novel| %>
     <% novel_data = get_novel_data(novel) %>
@@ -62,4 +68,3 @@
     <% end %>
   </div>
 </div>
-<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>

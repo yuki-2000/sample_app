@@ -61,6 +61,25 @@ p {
 
 /* home ranking */
 
+.title_h2 {
+  margin: 5px 5px 10px 5px;
+  padding: 5px;
+  border-bottom: 2px solid #6cc;
+}
+
+
+.h2_rank {
+  font-size: 120%;
+  font-weight: 700;
+  line-height: 150%;
+  margin: 5px 0 5px 0;
+  padding-left: 30px;
+  color: #3aa;
+  background: url(oukan.gif) no-repeat 0 3px;
+}
+
+
+
 .attention{
   font-weight: 700;
   color: #e33;
@@ -93,6 +112,11 @@ a.tl {
   margin: 0 0 35px 0;
 }
 
+
+.marginleft {
+  margin-right: 5px;
+  margin-left: 20px;
+}
 
 
 
