@@ -1,9 +1,10 @@
 <div class="center jumbotron">
-  <h1>10年前のなろうランキング</h1>
+  <h1>5年前のなろう日間ランキング</h1>
   <h2>
-    このサイトは10年前の
+    このサイトは5年前の
     <a href="https://syosetu.com/">小説家になろう</a>
     のランキングを掲載するサイトです。
+    過去のランキングを見たい時に使ってください。
   </h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 
@@ -40,7 +41,6 @@
         <tr>
           <td>
             <%= judge_genre(novel_data[1]["genre"]) %>
-            <%=novel_data[1]["genre"]%>
           </td>
         </tr>
         <tr>
