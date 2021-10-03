@@ -9,10 +9,31 @@
 </p>
 
 
+
+Qこのサイトは何？<br>
+Aこのサイトは<a href="https://dev.syosetu.com/man/api/">なろう小説API</a>
+を使用した過去の小説家になろうのランキングを掲載するサイトです<br>
+
+
+Qサイトが見にくい<br>
+Aすみません。railsを勉強して初めて作ったサイトなので今後改善してく予定です。<br>
+
+Q今後どうなるの<br>
+A日付を指定できるようにしたり掲載順位を増やしたりする予定です。<br>
+
+
+
+
+
+
+
+
+
+
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 <br>
 
-  <% index4()[0..15].each do |novel| %>
+  <% index4()[0..5].each do |novel| %>
     <%= novel %>
     <%= get_novel_data(novel) %>
     <br>
