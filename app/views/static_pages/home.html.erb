@@ -46,19 +46,21 @@
             <tr>
               <td class="keyword">
                 <%=novel_data[1]["keyword"]%>
-              </tr>
-              <tr>
-                <td>
-                  最終更新日：<%=novel_data[1]["general_lastup"]%>
-                  <span class="marginleft"><%=novel_data[1]["length"]%>文字</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-          <br>
-        <% end %>
-      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                最終更新日：<%=novel_data[1]["general_lastup"]%>
+                <span class="marginleft"><%=novel_data[1]["length"]%>文字</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+      <% end %>
     </div>
   </div>
-  <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+</div>
+<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+
