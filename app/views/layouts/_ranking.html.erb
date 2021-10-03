@@ -1,13 +1,13 @@
 
 <%year=5%>
 
-<h3><%=Time.now.prev_year(year).strftime(format= '%Y-%m-%d')%></h3>
+<h2><%=Time.now.prev_year(year).strftime(format= '%Y-%m-%d')%>の総合日間ランキング</h2>
 
 <div class="title_h2">
   <div class="h2_rank">日間ランキングBEST300</div>
 </div>
 <div class="ranking_inbox">
-  <% day_rank_nyago(year)[0..9].each do |novel| %>
+  <% day_rank_nyago(year)[0..4].each do |novel| %>
     <% novel_data = get_novel_data(novel) %>
     <div class="ranking_list">
       <span class="ranking_number"><%= novel["rank"] %>位</span>
