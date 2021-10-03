@@ -34,6 +34,17 @@ module StaticPagesHelper
         response = client.get(url, query)
         JSON.parse(response.body)
       end
+
+      #index4から戻す時間を柔軟に
+      def day_rank_nyago(y=5)
+        url = "https://api.syosetu.com/rank/rankget"
+        day5 = Time.now.prev_year(y).strftime(format= '%Y%m%d')
+        query = { out: "json", rtype: day5 + "-d" ,gzip: 0 } # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        client = HTTPClient.new
+        response = client.get(url, query)
+        JSON.parse(response.body)
+      end
+
       
       def make_ranking(data)
         data[0..5].each do |novel|
