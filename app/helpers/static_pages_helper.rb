@@ -60,7 +60,19 @@ module StaticPagesHelper
         client = HTTPClient.new
         response = client.get(url, query)
         JSON.parse(response.body)
-      end 
+      end
+      
+      def make_novel_url(ncode)
+        url = "https://ncode.syosetu.com/" + ncode
+        return url
+      end
+
+      def make_novel_info(ncode)
+        url = "https://ncode.syosetu.com/novelview/infotop/ncode/" + ncode + "/"
+        return url
+      end
+
+
 
 
 end

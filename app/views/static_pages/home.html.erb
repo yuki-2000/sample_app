@@ -1,29 +1,58 @@
 <div class="center jumbotron">
   <h1>10年前のなろうランキング</h1>
-
-
   <h2>
     このサイトは10年前の
     <a href="https://syosetu.com/">小説家になろう</a>
     のランキングを掲載するサイトです。
   </h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-
-
-
-
   <h3><%= index4%></h3>
   <h3><%= make_ranking(index4())%></h3>
-
   <% index4()[0..5].each do |novel| %>
     <%= get_novel_data(novel) %>
   <% end %>
 
 
 
+  <% index4()[0..5].each do |novel| %>
+    <% novel_data = get_novel_data(novel) %>
+    <span class="ranking_number"><%= novel["rank"] %>位</span>
+    <a class="tl" id="best1" target="_blank" href=<%=make_novel_url(novel["ncode"])%>>
+      <%=novel_data[1]["title"]%></a>
 
-  
-  
+    <table class="rank_table">
+      <tbody>
+        <tr>
+          <td class="h_info" colspan="2">
+            <a target="_blank" href=<%=make_novel_info(novel["ncode"])%>>小説情報</a>／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data[1]["writer"]%></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="left" rowspan="4">
+            <span class="point"><span class="attention">6,828</span>pt</span><br>
+            短編
+          </td>
+          <td class="ex">
+            <%=novel_data[1]["story"]%>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            異世界〔恋愛〕
+          </td>
+        </tr>
+        <tr>
+          <td class="keyword">
+            <a href="/search.php?word=R15">R15</a><a href="/search.php?word=%E6%AE%8B%E9%85%B7%E3%81%AA%E6%8F%8F%E5%86%99%E3%81%82%E3%82%8A">残酷な描写あり</a><a href="/search.php?word=%E8%BA%AB%E5%88%86%E5%B7%AE">身分差</a><a href="/search.php?word=%E9%9D%92%E6%98%A5">青春</a><a href="/search.php?word=%E3%83%A9%E3%83%96%E3%82%B3%E3%83%A1">ラブコメ</a><a href="/search.php?word=%E3%82%AE%E3%83%A3%E3%82%B0">ギャグ</a><a href="/search.php?word=%E3%81%BB%E3%81%AE%E3%81%BC%E3%81%AE">ほのぼの</a><a href="/search.php?word=%E4%BB%A4%E5%AC%A2">令嬢</a><a href="/search.php?word=%E7%8E%8B%E5%AD%90">王子</a><a href="/search.php?word=%E3%82%B3%E3%83%A1%E3%83%87%E3%82%A3">コメディ</a><a href="/search.php?word=%E3%81%96%E3%81%BE%E3%81%81">ざまぁ</a><a href="/search.php?word=%E3%82%A4%E3%82%A4%E3%83%8F%E3%83%8A%E3%82%B7%E3%82%AB%E3%83%8A%E3%83%BC%EF%BC%9F">イイハナシカナー？</a></td>
+        </tr>
+        <tr>
+          <td>
+            最終更新日：2021/09/27 07:31
+            <span class="marginleft">15,812文字</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
 </div>
-
 <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
