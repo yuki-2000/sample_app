@@ -7,7 +7,7 @@
   <div class="h2_rank">日間ランキングBEST300</div>
 </div>
 <div class="ranking_inbox">
-  <% day_rank_nyago(year)[0..4].each do |novel| %>
+  <% day_rank_nyago(year)[0..2].each do |novel| %>
     <% novel_data = get_novel_data(novel) %>
     <div class="ranking_list">
       <span class="ranking_number"><%= novel["rank"] %>位</span>

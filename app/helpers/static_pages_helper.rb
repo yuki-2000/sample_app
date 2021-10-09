@@ -60,7 +60,7 @@ module StaticPagesHelper
         end
       end
 
-
+      #gzip=0つまり無圧縮
       def get_novel_data(novel)
         ncode = novel["ncode"]          
         pt = novel["pt"]
@@ -71,6 +71,29 @@ module StaticPagesHelper
         client = HTTPClient.new
         response = client.get(url, query)
         JSON.parse(response.body)
+      end
+
+      #gzip=5
+      #https://stackoverflow.com/questions/1361892/how-to-decompress-gzip-string-in-ruby
+      def get_novel_data2(novel)
+        ncode = novel["ncode"]          
+        pt = novel["pt"]
+        rank = novel["rank"]
+
+        url = "https://api.syosetu.com/novelapi/api/"
+        query = { out: "json", ncode: ncode ,gzip: 5, of: "t-w-s-nt-gl-ga-e-l-g-k"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        client = HTTPClient.new
+        response = client.get(url, query)
+        require 'zlib'
+        require 'stringio'
+        gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))
+        uncompressed_string = gz.read
+        #response.length
+        #JSON.parse(response)
+        #response.body
+        
+        #response = Zlib::Inflate.inflate(response.body).read
+        #JSON.parse(response)
       end
       
       def make_novel_url(ncode)

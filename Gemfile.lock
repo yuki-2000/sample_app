@@ -200,6 +200,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
+    zlib (1.1.0)
 
 PLATFORMS
   x64-mingw32
@@ -223,6 +224,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  zlib
 
 BUNDLED WITH
    2.2.22
