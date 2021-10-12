@@ -61,7 +61,7 @@ module StaticPagesHelper
       end
 
       #gzip=0つまり無圧縮
-      def get_novel_data(novel)
+      def get_novel_data1(novel)
         ncode = novel["ncode"]          
         pt = novel["pt"]
         rank = novel["rank"]
@@ -73,9 +73,11 @@ module StaticPagesHelper
         JSON.parse(response.body)
       end
 
+
       #gzip=5
       #https://stackoverflow.com/questions/1361892/how-to-decompress-gzip-string-in-ruby
-      def get_novel_data2(novel)
+      #https://qiita.com/yuki_2020/questions/96d45af630117e0af183#answer-fd7697c357b6d8f6dfe1
+      def get_novel_data(novel)
         ncode = novel["ncode"]          
         pt = novel["pt"]
         rank = novel["rank"]
@@ -88,12 +90,7 @@ module StaticPagesHelper
         require 'stringio'
         gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))
         uncompressed_string = gz.read
-        #response.length
-        #JSON.parse(response)
-        #response.body
-        
-        #response = Zlib::Inflate.inflate(response.body).read
-        #JSON.parse(response)
+        JSON.parse(uncompressed_string)
       end
       
       def make_novel_url(ncode)
