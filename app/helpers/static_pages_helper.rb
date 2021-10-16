@@ -89,8 +89,20 @@ module StaticPagesHelper
         JSON.parse(uncompressed_string)
       end
 
+      #お試し
+      def get_novel_data2(ncode)
 
 
+        url = "https://api.syosetu.com/novelapi/api/"
+        query = { out: "json", ncode: ncode ,gzip: 5, of: "t-w-s-nt-gl-ga-e-l-g-k"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        client = HTTPClient.new
+        response = client.get(url, query)
+        require 'zlib'
+        require 'stringio'
+        gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))
+        uncompressed_string = gz.read
+        JSON.parse(uncompressed_string)
+      end
 
 
       

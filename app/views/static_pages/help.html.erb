@@ -29,15 +29,17 @@ A日付を指定できるようにしたり掲載順位を増やしたりする�
 
 
 
-
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 <br>
 
   <% index4()[0..1].each do |novel| %>
     <%= novel %>
-    <%= get_novel_data2(novel) %>
+    <%= get_novel_data(novel["ncode"]) %>
 
     <br>
     <br>
+
+
     
   <% end %>
+<%= get_novel_data("n2273dh-n4679do-n7047do") %>
