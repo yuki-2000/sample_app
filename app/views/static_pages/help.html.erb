@@ -1,5 +1,13 @@
 <% provide(:title, "Help") %>
 <h1>Help</h1>
+
+
+<p>
+いろいろ中身とかが散らかっているページです。<br>
+見ないで
+</p>
+
+
 <p>
   Get help on the Ruby on Rails Tutorial at the
   <a href="https://railstutorial.jp/help">Rails Tutorial help page</a>.
@@ -7,3 +15,27 @@
   <a href="https://railstutorial.jp/#ebook"><em>Ruby on Rails Tutorial</em>
   book</a>.
 </p>
+
+
+
+
+
+
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+
+
+<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<br>
+
+  <% index4()[0..1].each do |novel| %>
+    <%= novel %>
+    <%= get_novel_data(novel["ncode"]) %>
+
+    <br>
+    <br>
+
+
+    
+  <% end %>
+<%= get_novel_data("n2273dh-n4679do-n7047do") %>

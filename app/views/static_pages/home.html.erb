@@ -1,14 +1,17 @@
 <div class="center jumbotron">
-  <h1>Sample App</h1>
+  <h1>なろう過去ランキング</h1>
+  <h2>これは小説家になろうの<div class="attention">非公式のサイトです</div></h2>
+  <h3>
+    このサイトは5年前の
+    <a href="https://syosetu.com/">小説家になろう</a>
+    の日間総合ランキングを掲載するサイトです。<br>
 
-
-  <h2>
-    This is the home page for the
-    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  
+    過去のランキングを見たい時に使ってください。<br>
+    なお、本サービスは<a href="https://hinaproject.co.jp/hina_guideline.html">株式会社ヒナプロジェクト</a>
+    が提供するものではありません<br>
+    また、「小説家になろう」は株式会社ヒナプロジェクトの登録商標です。
+  </h3>
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+
+<%= render 'layouts/ranking' %>

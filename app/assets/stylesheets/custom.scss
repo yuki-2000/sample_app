@@ -17,7 +17,7 @@ body {
   }
   
   .center {
-    text-align: center;
+    text-align: left;
   }
   
   .center h1 {
@@ -41,6 +41,15 @@ h1 {
 }
 
 h2 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+h3 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -49,9 +58,73 @@ h2 {
   color: #777;
 }
 
+
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+
+
+
+/* home ranking */
+
+.title_h2 {
+  margin: 5px 5px 10px 5px;
+  padding: 5px;
+  border-bottom: 2px solid #6cc;
+}
+
+
+.h2_rank {
+  font-size: 120%;
+  font-weight: 700;
+  line-height: 150%;
+  margin: 5px 0 5px 0;
+  padding-left: 30px;
+  color: #3aa;
+  background: url(oukan.gif) no-repeat 0 3px;
+}
+
+
+
+.attention{
+  font-weight: 700;
+  color: #e33;
+}
+
+.point{
+  font-size: 130%;
+}
+
+
+a.tl {
+  font-size: 120%;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #fd6532;
+}
+
+
+
+.ranking_number {
+  font-size: 115%;
+  font-weight: 700;
+  display: inline-block;
+  width: 45px;
+  color: #3aa;
+}
+
+
+.ranking_list {
+  margin: 0 0 35px 0;
+}
+
+
+.marginleft {
+  margin-right: 5px;
+  margin-left: 20px;
 }
 
 

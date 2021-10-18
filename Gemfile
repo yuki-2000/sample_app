@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #ruby '3.0.2'
 
-
-
+#https://qiita.com/shungo_m/items/0a56610d944e4458dedd
+gem 'httpclient'
 
 gem 'bootstrap-sass', '3.3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
-
+gem 'zlib'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
