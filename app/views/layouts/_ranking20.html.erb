@@ -70,6 +70,7 @@
 
 <div class="ranking_inbox">
   <% old_ranking = day_rank_nyago(year) %>
+  <%#= 20こしか一度に取ってこれない %>
   <% novel20 = get_novel_data2(make_ncode_sequense(old_ranking[..19]))[1..] %>
   <% old_ranking[..19].each do |novel| %>
     <div class="ranking_list">
@@ -91,8 +92,9 @@
               <tr>
                 <td class="left" rowspan="4" width=95px>
                   <span class="point"><span class="attention"><%= novel["pt"] %></span>pt</span><br>
-                  <%= judge_sl(sl = novel_data["noveltype"], e = novel_data["end"]) %>
-                  <%if novel_data["noveltype"] = 1%>
+                <%#= noveltypeは指定時、無指定ではnovel_type %>
+                  <%= judge_sl(sl = novel_data["novel_type"], e = novel_data["end"]) %>
+                  <%if novel_data["novel_type"] = 1%>
                     <br>
                     (全<%=novel_data["general_all_no"]%>部分)
                   <%end%>
