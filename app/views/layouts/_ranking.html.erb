@@ -6,6 +6,14 @@
 <div class="title_h2">
   <div class="h2_rank">日間ランキングBEST300</div>
 </div>
+
+
+
+
+<%#= 旧式。一回ずつ小説データをとってくるため、負荷がかかる。 %>
+<%
+=begin %>
+
 <div class="ranking_inbox">
   <% day_rank_nyago(year)[0..4].each do |novel| %>
     <% novel_data = get_novel_data(novel["ncode"]) %>
@@ -59,3 +67,70 @@
     </div>
   <% end %>
 </div>
+
+
+
+
+<%
+=end %>
+
+
+
+<%#= 20こ一気にランキングをとってくるようにした。 %>
+
+
+<div class="ranking_inbox">
+  <%get_novel_data2(make_ncode_sequense(day_rank_nyago(6)[..21]))[1..].each_with_index do |novel_data, i|%>
+    <div class="ranking_list">
+      <span class="ranking_number"><%= i+1 %>位</span>
+      <%if novel_data["general_all_no"]==0%>
+        この小説は作者によって削除されました。
+      <%else%>
+        <a class="tl" id="best1" target="_blank" href=<%=make_novel_url(novel_data["ncode"])%>>
+          <%=novel_data["title"]%></a>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="h_info" colspan="2">
+                <a target="_blank" href=<%=make_novel_info(novel_data["ncode"])%>>小説情報</a>
+                ／作者：<a href="https://mypage.syosetu.com/444838/"><%=novel_data["writer"]%></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="left" rowspan="4" width=95px>
+                <span class="point"><span class="attention"><%= novel_data["global_point"] %></span>pt</span><br>
+                <%= judge_sl(sl = novel_data["noveltype"], e = novel_data["end"]) %>
+                <%if novel_data["noveltype"] = 1%>
+                  <br>
+                  (全<%=novel_data["general_all_no"]%>部分)
+                <%end%>
+              </td>
+              <td class="ex">
+                <%=novel_data["story"]%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= judge_genre(novel_data["genre"]) %>
+              </td>
+            </tr>
+            <tr>
+              <td class="keyword">
+                <%=novel_data["keyword"]%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                最終更新日：<%=novel_data["general_lastup"]%>
+                <span class="marginleft"><%=novel_data["length"]%>文字</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <%end%>
+    </div>
+  <% end %>
+</div>
+
+
+
