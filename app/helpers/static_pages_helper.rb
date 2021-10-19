@@ -79,7 +79,7 @@ module StaticPagesHelper
 
 
         url = "https://api.syosetu.com/novelapi/api/"
-        query = { out: "json", ncode: ncode ,gzip: 5, of: "t-w-s-nt-gl-ga-e-l-g-k"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        query = { out: "json", ncode: ncode ,gzip: 5, of: "t-w-s-nt-gl-ga-e-l-g-k"} 
         client = HTTPClient.new
         response = client.get(url, query)
         require 'zlib'
@@ -90,11 +90,12 @@ module StaticPagesHelper
       end
 
       #お試し
+      #出力パラメータをすべてに
       def get_novel_data2(ncode)
 
 
         url = "https://api.syosetu.com/novelapi/api/"
-        query = { out: "json", ncode: ncode ,gzip: 5, of: "t-w-s-nt-gl-ga-e-l-g-k"} # 例) 1ページ目、1ページごとのデータ取得数を20件にするquery       
+        query = { out: "json", ncode: ncode ,gzip: 5, } 
         client = HTTPClient.new
         response = client.get(url, query)
         require 'zlib'
@@ -103,6 +104,18 @@ module StaticPagesHelper
         uncompressed_string = gz.read
         JSON.parse(uncompressed_string)
       end
+
+
+
+      def make_ncode_sequense(rankdata)
+        ncodes = rankdata[0]["ncode"]
+        rankdata[1..].each do |data|
+          ncodes += "-" 
+          ncodes += data["ncode"]
+        end
+        return ncodes
+      end
+
 
 
       

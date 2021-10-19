@@ -6,6 +6,12 @@
 <div class="title_h2">
   <div class="h2_rank">日間ランキングBEST300</div>
 </div>
+
+
+
+<%#= 旧式。一回ずつ小説データをとってくるため、負荷がかかる。 %>
+
+
 <div class="ranking_inbox">
   <% day_rank_nyago(year)[0..4].each do |novel| %>
     <% novel_data = get_novel_data(novel["ncode"]) %>
@@ -59,3 +65,12 @@
     </div>
   <% end %>
 </div>
+
+
+
+
+
+
+
+
+
