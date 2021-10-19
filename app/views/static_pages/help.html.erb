@@ -59,3 +59,31 @@
 
 <%= get_novel_data2(make_ncode_sequense(day_rank_nyago(5)[..19])) %>
 
+
+
+<%
+=begin %>
+
+<%
+=end %>
+
+
+<%= old_ranking = day_rank_nyago(5) %>
+  <%#= 20こしか一度に取ってこれない %>
+<%= novel20 = get_novel_data2(make_ncode_sequense(old_ranking[..19]))[1..] %>
+
+<% data = Ranking.new(date: Time.now.prev_year(5).strftime(format= '%Y%m%d').to_s, oldranking: old_ranking.to_s, noveldata:novel20.to_s) %>
+
+<%data.save%>
+
+
+
+
+<br>
+<br>
+ここまで動的
+
+<br>
+<br>
+
+
