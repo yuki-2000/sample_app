@@ -110,7 +110,10 @@
               </tr>
               <tr>
                 <td class="keyword">
-                  <%=novel_data["keyword"]%>
+                  <% tags = novel_data["keyword"].split(" ")%>
+                  <%tags.each do |tag|%>
+                    <a href = "https://yomou.syosetu.com/search.php?word=<%=tag%>" > <%=tag%> </a>
+                  <%end%>
                 </td>
               </tr>
               <tr>
